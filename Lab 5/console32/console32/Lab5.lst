@@ -1,0 +1,70 @@
+Microsoft (R) Macro Assembler Version 14.28.29337.0	    02/24/21 10:59:22
+Lab5.asm						     Page 1 - 1
+
+
+				; Example assembly language program -- adds 158 to number in memory
+				; Author:  R. Detmer
+				; Date:    6/2013
+
+				.586
+				.MODEL FLAT
+
+				.STACK  4096            ; reserve 4096-byte stack
+
+ 00000000			.DATA                   ; reserve storage for data
+ 00000000 FFFFFFFF		 dval DWORD -1 ; initialize dval with -1
+
+ 00000000			.CODE                           ; start of main program code
+ 00000000			main    PROC
+ 00000000  B8 000001A2		        mov eax, 000001A2h ; initialize before state
+ 00000005  B8 00000064		        mov eax, 100       ; exectuing instruction
+
+ 0000000A  BA FF754C2E		        mov edx, 0FF754C2Eh ; initialize edx 
+
+ 0000000F  8B 15 00000000 R	        mov edx, dval       ;
+
+ 00000015  B8 00000000		        mov   eax, 0            ; exit with return code 0
+ 0000001A  C3			        ret
+ 0000001B			main    ENDP
+
+				END                             ; end of source code
+Microsoft (R) Macro Assembler Version 14.28.29337.0	    02/24/21 10:59:22
+Lab5.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000004 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000001B Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000001B Public
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000000h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+dval . . . . . . . . . . . . . .	DWord	 00000000 _DATA	
+
+	   0 Warnings
+	   0 Errors
