@@ -1,0 +1,89 @@
+Microsoft (R) Macro Assembler Version 14.28.29337.0	    03/03/21 10:35:35
+lab6.asm						     Page 1 - 1
+
+
+				; Author:  Johnny Palacio
+				; Date:    3/3/2021
+
+				.586
+				.MODEL FLAT
+
+				.STACK  4096            ; reserve 4096-byte stack
+
+ 00000000			.DATA                   ; reserve storage for 
+ 00000000 FF9C			wordOp WORD -100
+ 00000000			.CODE                           ; start of main program code
+ 00000000			main    PROC
+				        ;Question One
+ 00000000  66| 03 05		        add ax, wordOp
+	   00000000 R
+				        ;Question Two
+ 00000007  2A D5		        sub dl, ch
+				        ;Question Three
+ 00000009  43			        inc ebx
+				        ;Question Four
+ 0000000A  FE C8		        dec al
+				        ;Question Five
+ 0000000C  F7 D8		        neg eax
+				        ;Question Six
+ 0000000E  BB FFFFFF75		        mov ebx, 0FFFFFF75h
+ 00000013  B9 000001A2		        mov ecx, 000001A2h
+ 00000018  03 D9		        add ebx, ecx
+				        ;Question Seven
+ 0000001A  BB FFFFFF75		        mov ebx, 0FFFFFF75h
+ 0000001F  B9 000001A2		        mov ecx, 000001A2h
+ 00000024  2B D9		        sub ebx, ecx
+				        ;Question Eight
+ 00000026  66| B9 031A		        mov cx, 031Ah
+ 0000002A  66| 41		        inc cx
+				        ;Question Nine
+ 0000002C  B8 00000001		        mov eax, 00000001
+ 00000031  48			        dec eax
+				        ;Question Ten
+ 00000032  BB FFFFFFFF		        mov ebx, 0FFFFFFFFh
+ 00000037  F7 DB		        neg ebx
+ 00000039  B8 00000000		        mov   eax, 0            ; exit with return code 0
+ 0000003E  C3			        ret
+ 0000003F			main    ENDP
+
+				END                             ; end of source code
+Microsoft (R) Macro Assembler Version 14.28.29337.0	    03/03/21 10:35:35
+lab6.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000002 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000003F Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000003F Public
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000000h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+wordOp . . . . . . . . . . . . .	Word	 00000000 _DATA	
+
+	   0 Warnings
+	   0 Errors
